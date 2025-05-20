@@ -13,9 +13,9 @@ import PodcastDetail from './pages/PodcastDetail';
 
 function App() {
   return (
-    <AuthProvider>
-      <ThemeProvider>
-        <Router>
+    <Router>
+      <AuthProvider>
+        <ThemeProvider>
           <div className="flex min-h-screen bg-gray-100 dark:bg-gray-900">
             <Sidebar />
             <div className="flex flex-col flex-1">
@@ -33,9 +33,9 @@ function App() {
               </main>
             </div>
           </div>
-        </Router>
-      </ThemeProvider>
-    </AuthProvider>
+        </ThemeProvider>
+      </AuthProvider>
+    </Router>
   );
 }
 

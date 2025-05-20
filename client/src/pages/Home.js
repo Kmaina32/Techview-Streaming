@@ -17,7 +17,6 @@ const Home = () => {
         const response = await axios.get('/podcasts/');
         setPodcasts(response.data);
         setFilteredPodcasts(response.data);
-        // Extract categories from podcasts metadata or use a fixed list
         const cats = ['All', ...new Set(response.data.map(p => p.category || 'Uncategorized'))];
         setCategories(cats);
       } catch (error) {
@@ -62,15 +61,15 @@ const Home = () => {
   };
 
   if (loading) {
-    return <div className="p-4">Loading podcasts...</div>;
+    return <div className="p-4 text-white">Loading podcasts...</div>;
   }
 
   return (
-    <div className="p-4">
+    <div className="p-4 text-white">
       {/* Hero Featured Podcast */}
       {podcasts.length > 0 && (
-        <div className="mb-6 p-4 bg-gradient-to-r from-purple-700 to-indigo-700 text-white rounded shadow">
-          <h2 className="text-2xl font-bold mb-2">Featured Podcast</h2>
+        <div className="mb-6 p-4 bg-gradient-to-r from-indigo-900 via-purple-900 to-indigo-800 rounded shadow-lg">
+          <h2 className="text-2xl font-serif font-bold mb-2">Featured Podcast</h2>
           <div className="flex flex-col md:flex-row items-center gap-4">
             {podcasts[0].thumbnail && (
               <img
@@ -80,8 +79,8 @@ const Home = () => {
               />
             )}
             <div>
-              <h3 className="text-xl font-semibold">{podcasts[0].title}</h3>
-              <p className="mt-2">{podcasts[0].description}</p>
+              <h3 className="text-xl font-serif font-semibold">{podcasts[0].title}</h3>
+              <p className="mt-2 text-gray-300">{podcasts[0].description}</p>
             </div>
           </div>
         </div>
@@ -94,14 +93,14 @@ const Home = () => {
           value={searchQuery}
           onChange={handleSearchChange}
           placeholder="Search podcasts..."
-          className="w-full border border-gray-300 rounded p-2"
+          className="w-full border border-indigo-700 rounded p-2 bg-indigo-900 text-white placeholder-indigo-400 focus:outline-none focus:ring-2 focus:ring-orange-500 transition"
         />
         {searchSuggestions.length > 0 && (
-          <ul className="absolute z-10 bg-white border border-gray-300 w-full mt-1 rounded max-h-40 overflow-auto">
+          <ul className="absolute z-10 bg-indigo-900 border border-indigo-700 w-full mt-1 rounded max-h-40 overflow-auto text-white">
             {searchSuggestions.map((suggestion, idx) => (
               <li
                 key={idx}
-                className="p-2 hover:bg-gray-200 cursor-pointer"
+                className="p-2 hover:bg-orange-500 cursor-pointer transition"
                 onClick={() => handleSuggestionClick(suggestion)}
               >
                 {suggestion}
@@ -117,10 +116,10 @@ const Home = () => {
           <button
             key={category}
             onClick={() => setSelectedCategory(category)}
-            className={`px-3 py-1 rounded-full border ${
+            className={`px-3 py-1 rounded-full border font-semibold ${
               selectedCategory === category
-                ? 'bg-purple-700 text-white border-purple-700'
-                : 'border-gray-400 text-gray-700 hover:bg-gray-200'
+                ? 'bg-indigo-700 text-white border-indigo-700'
+                : 'border-indigo-500 text-indigo-300 hover:bg-indigo-600 hover:text-white transition'
             }`}
           >
             {category}
@@ -130,12 +129,12 @@ const Home = () => {
 
       {/* Continue Listening and Popular This Week Sections (placeholders) */}
       <div className="mb-6">
-        <h2 className="text-xl font-semibold mb-2">Continue Listening</h2>
-        <p className="text-gray-600">Feature coming soon...</p>
+        <h2 className="text-xl font-serif font-semibold mb-2">Continue Listening</h2>
+        <p className="text-indigo-300">Feature coming soon...</p>
       </div>
       <div className="mb-6">
-        <h2 className="text-xl font-semibold mb-2">Popular This Week</h2>
-        <p className="text-gray-600">Feature coming soon...</p>
+        <h2 className="text-xl font-serif font-semibold mb-2">Popular This Week</h2>
+        <p className="text-indigo-300">Feature coming soon...</p>
       </div>
 
       {/* Podcast Grid */}
