@@ -1,38 +1,70 @@
+/* Base App Styles */
 .App {
   text-align: center;
+  background-color: #121212;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
+/* Header Section */
 .App-header {
-  background-color: #282c34;
+  background: linear-gradient(180deg, #1e1e2f, #121212);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 2rem;
+  font-size: calc(12px + 1.5vmin);
 }
 
-.App-link {
-  color: #61dafb;
+/* Logo Animation */
+.App-logo {
+  height: 120px;
+  width: auto;
+  margin-bottom: 1.5rem;
+  animation: App-logo-spin 20s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .App-logo {
+    animation: none;
+  }
 }
 
 @keyframes App-logo-spin {
-  from {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
   }
+}
+
+/* Link Styling */
+.App-link {
+  color: #00e0ff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.App-link:hover {
+  color: #00bcd4;
+}
+
+/* Responsive Typography */
+h1, h2, h3 {
+  margin: 0.5rem 0;
+  font-weight: 600;
+}
+
+p {
+  color: #cfcfcf;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
 }
