@@ -1,0 +1,39 @@
+/* Sidebar.css */
+.sidebar {
+    width: 150px;
+    height: 100vh;
+    background-color: #ffffff; /* white background */
+    border-right: 1px solid #e0e0e0; /* subtle light grey border */
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar li {
+    margin: 20px 0;
+  }
+  
+  .sidebar a {
+    text-decoration: none;
+    color: #555; /* muted grey */
+    font-size: 16px;
+    padding: 10px 20px;
+    display: block;
+    transition: background 0.2s ease, color 0.2s ease;
+    border-radius: 8px;
+  }
+  
+  .sidebar a:hover,
+  .sidebar a.active {
+    background-color: #f2f2f2; /* light grey hover */
+    color: #000; /* darker text on hover */
+  }
+  
